@@ -1,4 +1,4 @@
-Lab 8 - SQL injection UNION attack, finding a column containing text
+# Lab 8 - SQL injection UNION attack, finding a column containing text
 
 ## B1: Phân tích yêu cầu bài lab
 - Theo yêu cầu của bài lab, ta cần thực hiện một tấn công SQL injection kiểu UNION trả về một hàng bổ sung chứa giá trị được cung cấp. Vậy thì trước tiên ta cần xác định số lượng cột của bảng đó là bao nhiêu
